@@ -170,10 +170,14 @@ header {
   padding: 15px 0;
 }
 
+.space{
+  opacity: 0;
+}
+
 .logo-image {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 4px solid var(--card-border);
   background: var(--bg-secondary);
