@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Welcome to the personal academic portfolio and university student management platform. Showcase of skills, projects, and planner tools.">
+  <title>Home | Academic Portfolio & Student Management</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Sticky Navbar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo" id="nav-logo">Student<span class="gradient-text">Portfolio</span></a>
+      <nav>
+        <ul class="nav-links" id="navbar-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="menu-toggle-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section hero-section" id="home-hero">
+    <div class="container grid-2">
+      <!-- Biography & Welcome -->
+      <div class="hero-content" id="hero-profile-info">
+        <h1 class="gradient-text" style="font-size: 3rem; line-height: 1.1;">Hi, I'm Damilola Lawrence</h1>
+        <div class="hero-subtitle" id="typewriter-text">Cybersecurity & Frontend developer
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+          Welcome to my academic space. I am a dedicated undergraduate student specializing in Web security,
+          Network security, and interactive web application architectures. Here, I showcase my educational records,
+          active projects, certifications, and manage my semester schedules.
+        </p>
+
+        <div class="hero-actions" style="display: flex; gap: 15px;">
+          <a href="planner.html" class="btn btn-primary" id="cta-planner">Academic Planner</a>
+          <a href="projects.html" class="btn btn-secondary" id="cta-projects">View Projects</a>
+        </div>
+
+        <!-- Academic quick stats -->
+        <div class="hero-stats" id="quick-stats-panel">
+          <div class="stat-item glass-card">
+            <div class="stat-num" id="stat-gpa">4.65</div>
+            <div class="stat-label">CGPA</div>
+          </div>
+          <div class="stat-item glass-card">
+            <div class="stat-num" id="stat-credits">92</div>
+            <div class="stat-label">Credits</div>
+          </div>
+          <div class="stat-item glass-card">
+            <div class="stat-num" id="stat-projects">5+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Photo -->
+      <div class="photo-uploader-container">
+        <div class="avatar-wrapper">
+          <!-- SOURCE CODE EDITABLE: Replace the 'src' link below with your local image file (e.g., assets/profile.jpg) or any web link. -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80" alt="Student Headshot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Biography Section -->
+  <section class="section" style="background-color: var(--bg-secondary);" id="biography-section">
+    <div class="container">
+      <h2 class="section-title">My Biography</h2>
+      <div class="glass-card" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        <p style="margin-bottom: 15px;">
+          I am in my first year of Cybersecurity study, .
+        </p>
+        <p>
+          Beyond standard coursework, I contribute to open-source systems, take technical certification exams, and build
+          web applications. I believe that engineering is the perfect marriage of mathematical rigor and artistic
+          design. I design web software that is secure, fast, and accessible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ongoing Goals, Certifications & Schedule Preview -->
+  <section class="section" id="active-goals-section">
+    <div class="container">
+      <h2 class="section-title">Active Goals & Prep Status</h2>
+      <div class="grid-2">
+
+        <!-- Ongoing Projects & Certifications -->
+        <div class="glass-card" id="goals-certifications-panel">
+          <h3 style="margin-bottom: 20px;" class="gradient-text">Ongoing Certifications</h3>
+          <ul style="display: flex; flex-direction: column; gap: 15px;">
+            <li
+              style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
+              <div>
+                <strong style="display: block;">ISC 2</strong>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Target: July 2026</span>
+              </div>
+              <span class="task-priority-badge priority-medium">Preparing</span>
+            </li>
+            <li
+              style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
+              <div>
+                <strong style="display: block;">Try hack me cybersecurity course</strong>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Target: August 2026</span>
+              </div>
+              <span class="task-priority-badge priority-low">Taking</span>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px;">
+              <div>
+                <strong style="display: block;">CompTIA Security+ Exam</strong>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Target: October 2026</span>
+              </div>
+              <span class="task-priority-badge priority-high">Registered</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ongoing Projects Progress -->
+        <div class="glass-card" id="active-projects-progress-panel">
+          <h3 style="margin-bottom: 20px;" class="gradient-text">Ongoing Projects</h3>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="project-progress-container">
+              <div class="progress-label-row">
+                <strong>EduPlan Dashboard (Study Planner App)</strong>
+                <span>75%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="project-progress-container">
+              <div class="progress-label-row">
+                <strong>IPS system</strong>
+                <span>10%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-fill" style="width: 10%;"></div>
+              </div>
+            </div>
+            <div class="project-progress-container">
+              <div class="progress-label-row">
+                <strong>IDS system with AI</strong>
+                <span>7%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-fill" style="width: 7%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Damiola Lawrence. MIVA Open University Lab (COS 106). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

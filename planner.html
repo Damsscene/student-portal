@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your semester tasks, study schedules, and exam deadlines using our interactive student academic planner.">
+  <title>Academic Planner | Student Management</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo" id="nav-logo">Student<span class="gradient-text">Portfolio</span></a>
+      <nav>
+        <ul class="nav-links" id="navbar-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html" class="active">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="menu-toggle-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Planner Section -->
+  <section class="section" id="academic-planner-section">
+    <div class="container">
+      <h2 class="section-title">Academic Planner & Scheduler</h2>
+      
+      <div class="planner-layout">
+        
+        <!-- Left Column: Add Task Form & Calendar -->
+        <div class="planner-dashboard" id="planner-left-sidebar">
+          
+          <!-- Add Task Form -->
+          <div class="glass-card" id="task-creation-form-card">
+            <h3 class="gradient-text" style="margin-bottom: 20px;">Create Study Task</h3>
+            <form id="add-task-form">
+              <div class="form-group">
+                <label for="task-title" class="form-label">Task Name</label>
+                <input type="text" id="task-title" class="form-input" placeholder="e.g. Study for Calculus Exam" required>
+              </div>
+              <div class="grid-2" style="gap: 15px; margin-bottom: 0;">
+                <div class="form-group">
+                  <label for="task-course" class="form-label">Course / Topic</label>
+                  <input type="text" id="task-course" class="form-input" placeholder="e.g. MTH 101" required>
+                </div>
+                <div class="form-group">
+                  <label for="task-priority" class="form-label">Priority</label>
+                  <select id="task-priority" class="form-select">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="task-duration" class="form-label">Focus Timer (Minutes)</label>
+                <input type="number" id="task-duration" class="form-input" min="1" max="180" value="25">
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;" id="btn-submit-task">
+                Add To Planner
+              </button>
+            </form>
+          </div>
+
+          <!-- Academic Calendar Widget -->
+          <div class="glass-card calendar-card" id="calendar-widget-card">
+            <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <div style="display: flex; gap: 8px; align-items: center;" id="calendar-selects-container">
+                <select id="calendar-month-select" class="form-select" style="width: auto; padding: 6px 12px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: var(--radius-sm);"></select>
+                <select id="calendar-year-select" class="form-select" style="width: auto; padding: 6px 12px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: var(--radius-sm);"></select>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="calendar-nav-btn" id="calendar-prev-month" aria-label="Previous Month">&lt;</button>
+                <button class="calendar-nav-btn" id="calendar-next-month" aria-label="Next Month">&gt;</button>
+              </div>
+            </div>
+            
+            <div class="calendar-grid" id="calendar-days-grid">
+              <!-- Headers -->
+              <div class="calendar-day-header">Sun</div>
+              <div class="calendar-day-header">Mon</div>
+              <div class="calendar-day-header">Tue</div>
+              <div class="calendar-day-header">Wed</div>
+              <div class="calendar-day-header">Thu</div>
+              <div class="calendar-day-header">Fri</div>
+              <div class="calendar-day-header">Sat</div>
+              
+              <!-- Days will be dynamically loaded by Javascript -->
+            </div>
+            
+            <div style="display: flex; justify-content: space-around; font-size: 0.75rem; margin-top: 15px; color: var(--text-secondary);" id="calendar-legend">
+              <span style="display: flex; align-items: center; gap: 5px;">
+                <span class="calendar-event-dot event-exam" style="width: 8px; height: 8px; border-radius: 50%;"></span> Exam
+              </span>
+              <span style="display: flex; align-items: center; gap: 5px;">
+                <span class="calendar-event-dot event-cert" style="width: 8px; height: 8px; border-radius: 50%;"></span> Certification
+              </span>
+              <span style="display: flex; align-items: center; gap: 5px;">
+                <span class="calendar-event-dot event-project" style="width: 8px; height: 8px; border-radius: 50%;"></span> Milestone
+              </span>
+            </div>
+            
+            <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: 10px;">
+              💡 Click on any day cell to schedule examinations or milestones.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Task Grid Columns -->
+        <div class="planner-dashboard" id="planner-tasks-dashboard">
+          
+          <div class="task-columns">
+            
+            <!-- Column 1: Pending Tasks -->
+            <div>
+              <h3 class="task-column-title">
+                <span>Pending Tasks</span>
+                <span class="task-count" id="pending-count">0</span>
+              </h3>
+              <div class="task-list" id="pending-tasks-list">
+                <!-- Dynamically populated by planner.js -->
+              </div>
+            </div>
+
+            <!-- Column 2: Completed Tasks -->
+            <div>
+              <h3 class="task-column-title">
+                <span>Completed Tasks</span>
+                <span class="task-count" id="completed-count">0</span>
+              </h3>
+              <div class="task-list" id="completed-tasks-list">
+                <!-- Dynamically populated by planner.js -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Dialog for Scheduling Events on Calendar -->
+  <div class="modal-overlay" id="scheduler-modal-overlay">
+    <div class="modal-content" id="scheduler-modal">
+      <div class="modal-header">
+        <h3 class="gradient-text" id="modal-title-date">Schedule Event</h3>
+        <button class="modal-close-btn" id="btn-close-modal">&times;</button>
+      </div>
+      <form id="scheduler-event-form">
+        <input type="hidden" id="event-date-str">
+        <div class="form-group">
+          <label for="event-title" class="form-label">Event / Exam Title</label>
+          <input type="text" id="event-title" class="form-input" placeholder="e.g. AWS Exam / Final Project Submission" required>
+        </div>
+        <div class="form-group">
+          <label for="event-type" class="form-label">Event Type</label>
+          <select id="event-type" class="form-select">
+            <option value="exam">Examination / Test</option>
+            <option value="cert">Certification Target</option>
+            <option value="project">Project Milestone / Deadline</option>
+            <option value="custom">+ Add Custom Type...</option>
+          </select>
+        </div>
+        <!-- Shown only when Custom Type is selected -->
+        <div class="form-group" id="custom-type-group" style="display: none;">
+          <label for="event-custom-label" class="form-label">Custom Type Name</label>
+          <input type="text" id="event-custom-label" class="form-input" placeholder="e.g. Study Group, Workshop, Lab Session">
+        </div>
+        <div style="display: flex; gap: 15px; margin-top: 15px;">
+          <button type="submit" class="btn btn-primary" style="flex-grow: 1;" id="btn-save-event">Save Event</button>
+          <button type="button" class="btn btn-secondary" id="btn-delete-events-day" style="color: var(--danger-color); border-color: var(--danger-color); display: none;">Clear Day</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Audio asset for timer beep -->
+  <audio id="timer-alert-audio" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-200.wav" preload="auto"></audio>
+
+  <!-- Footer -->
+   <footer>
+    <div class="container">
+      <p>&copy; 2026 Damiola Lawrence. MIVA Open University Lab (COS 106). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>
